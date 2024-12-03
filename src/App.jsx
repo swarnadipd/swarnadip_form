@@ -184,18 +184,15 @@ const DynamicForm = () => {
       const currentIndex = formOrder.indexOf(selectedFormType);
       const nextFormIndex = currentIndex + 1;
 
-      // If there's a next form, automatically select it
       if (nextFormIndex < formOrder.length) {
         const nextForm = formOrder[nextFormIndex];
 
-        // Small delay to allow user to see the success toast
         setTimeout(() => {
           setSelectedFormType(nextForm);
           setFormFields(API_RESPONSES[nextForm].fields);
           resetForm();
         }, 2000);
       } else {
-        // If it's the last form, reset after a delay
         setTimeout(() => {
           resetForm();
           setSelectedFormType("");
